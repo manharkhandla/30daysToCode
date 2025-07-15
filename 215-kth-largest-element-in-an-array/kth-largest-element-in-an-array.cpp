@@ -31,21 +31,15 @@ public:
             heapify(nums,n,i);
         }
 
-        for(int i=n-1;i>=0;i--)
+        int count = 0;
+        int j = n-1;
+        while(count<k)
         {
-            swap(nums[i],nums[0]);
-            heapify(nums,i,0);
+            swap(nums[j],nums[0]);
+            heapify(nums,j,0);
+            count++;
+            j--;
         }
-
-        // int count = 0;
-        // int j = n-1;
-        // while(count<k)
-        // {
-        //     swap(nums[j],nums[0]);
-        //     heapify(nums,j,0);
-        //     count++;
-        //     j--;
-        // }
-         return nums[n-k];
+        return nums[n-k];
     }
 };
