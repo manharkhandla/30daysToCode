@@ -25,7 +25,6 @@ public:
             }
         }
 
-
         while(!q.empty())
         {
             int currentCourse = q.front();
