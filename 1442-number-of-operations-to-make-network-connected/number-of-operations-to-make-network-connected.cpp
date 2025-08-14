@@ -1,10 +1,5 @@
-
-
-
 class Solution {
 public:
-
-
 
     vector<int> parent;
     vector<int> rank;
@@ -36,29 +31,30 @@ public:
         
         else 
         {
-            parent[y_parent] = x_parent; // attach y to x (or vice versa)
+            parent[y_parent] = x_parent; 
             rank[x_parent]++;
         }
         
     }
 
     int makeConnected(int n, vector<vector<int>>& connections) {
-    if (n - 1 > connections.size()) return -1;
+        if (n - 1 > connections.size()) return -1;
 
-    parent.resize(n);
-    rank.resize(n);
-    for (int i = 0; i < n; i++) parent[i] = i;
+        parent.resize(n);
+        rank.resize(n);
+        for (int i = 0; i < n; i++) parent[i] = i;
 
-    for (auto& c : connections) {
-        Union(c[0], c[1]);
+        for (auto& c : connections) {
+            Union(c[0], c[1]);
+        }
+
+        int components = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (find(i) == i) components++;
+        }
+
+        return components - 1;
     }
-
-    int components = 0;
-    for (int i = 0; i < n; i++) {
-        if (find(i) == i) components++;
-    }
-
-    return components - 1; // operations needed
-}
 
 };
