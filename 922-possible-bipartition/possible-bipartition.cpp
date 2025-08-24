@@ -1,13 +1,10 @@
 class Solution {
 public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
-        unordered_map<int,vector<int>> mp;
+        vector<vector<int>> mp(n+1);
 
-        for(int i=0;i<dislikes.size();i++)
-        {
-            int u = dislikes[i][0];
-            int v = dislikes[i][1];
-
+        for(auto &d : dislikes) {
+            int u = d[0], v = d[1];
             mp[u].push_back(v);
             mp[v].push_back(u);
         }
