@@ -1,14 +1,14 @@
 class Solution {
 public:
 
-    void DFS(unordered_map<int, vector<int>> &mp,vector<bool> &visited,int source)
+    void DFS(vector<vector<int>> &adj,vector<bool> &visited,int source)
     {
         if(visited[source]) return;
         visited[source] = 1;
 
-        for(int &v : mp[source])
+        for(int &v : adj[source])
         {
-            if(!visited[v]) DFS(mp,visited,v);
+            if(!visited[v]) DFS(adj,visited,v);
         }
 
         return;
@@ -17,18 +17,18 @@ public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
         vector<bool> visited(n,0);
 
-        unordered_map<int,vector<int>> mp;
+        vector<vector<int>> adj(n);
 
-        for(vector<int> &edge : edges)
+        for(int i=0;i<edges.size();i++)
         {
-            int u = edge[0];
-            int v = edge[1];
+            int vertex = edges[i][0];
+            adj[vertex].push_back(edges[i][1]);
 
-            mp[u].push_back(v);
-            mp[v].push_back(u);
+            int vertex2 = edges[i][1];
+            adj[vertex2].push_back(edges[i][0]);
         }
 
-        DFS(mp,visited,source);
+        DFS(adj,visited,source);
         if(visited[destination]) return true;
         return false;
     }
