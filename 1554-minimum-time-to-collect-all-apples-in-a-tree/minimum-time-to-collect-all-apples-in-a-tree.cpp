@@ -29,6 +29,7 @@ public:
             adj[v].push_back(u);
         }
 
-        return DFS(adj,hasApple,0,-1);
+        int time = DFS(adj,hasApple,0,-1);
+        return time;
     }
 };
