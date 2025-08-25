@@ -29,7 +29,6 @@ public:
         }
 
         long long totalPair = (1LL * (n - 1) * n) / 2;
-        cout<<totalPair<<" ";
         vector<bool> visited(n,0);
 
         long long intr = 0;
@@ -40,12 +39,9 @@ public:
             {
                 long long count = 0;
                 DFS(adj,visited,i,count);
-                cout<<count<<" ";
                 intr += ((count)*(count+1))/2;
             }
         }
-
-        cout<<intr;
         long long ans = (totalPair-intr);
         return ans;
     }
