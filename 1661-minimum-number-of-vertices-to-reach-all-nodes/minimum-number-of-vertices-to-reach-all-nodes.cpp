@@ -6,9 +6,7 @@ public:
 
         for(auto &vec : edges)
         {
-            int u = vec[0];
-            int v = vec[1];
-            inDegree[v] = 1;
+            inDegree[vec[1]] = 1;
         }
         vector<int> ans;
         for(int i=0;i<n;i++)
