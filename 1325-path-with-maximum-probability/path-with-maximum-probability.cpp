@@ -23,6 +23,8 @@ public:
             double prob = q.top().first;
             q.pop();
 
+            if(prob < result[node]) continue;
+
             for(auto &vec : adj[node])
             {
                 int v = vec.first;
