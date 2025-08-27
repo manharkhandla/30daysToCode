@@ -23,7 +23,7 @@ public:
             double prob = q.top().first;
             q.pop();
 
-            if(prob < result[node]) continue;
+            if(node == end_node) return prob;
 
             for(auto &vec : adj[node])
             {
