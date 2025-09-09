@@ -8,8 +8,7 @@ public:
 
         for(int i=0;i<n;i++)
         {
-            if(nums[i]>0) posIdx.push(i);
-            if(nums[i]<0) negIdx.push(i);
+            nums[i]>0?posIdx.push(i):negIdx.push(i);
         }
 
         for(int i=0;i<n/2;i++)
