@@ -11,7 +11,7 @@ public:
         {
             m[nums[j]]++;
 
-            while(i<j && m[nums[j]] > k)
+            while(m[nums[j]] > k)
             {
                 m[nums[i]]--;
                 i++;
