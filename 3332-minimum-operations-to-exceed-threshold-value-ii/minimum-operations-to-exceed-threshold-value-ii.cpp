@@ -7,7 +7,7 @@ public:
         for(int i=0;i<n;i++) pq.push(nums[i]);
         int ans = 0;
 
-        while(!pq.empty() && pq.top()<k)
+        while(pq.size()>=2 && pq.top()<k)
         {
             long long min1 = pq.top();
             pq.pop();
