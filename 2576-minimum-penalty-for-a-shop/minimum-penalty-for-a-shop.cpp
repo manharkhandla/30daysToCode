@@ -1,39 +1,6 @@
 class Solution {
 public:
     int bestClosingTime(string customers) {
-        // int n = customers.size();
-        // vector<int> 
-        // vector<int> panelty;
-
-        // for(int i=0;i<=n;i++)
-        // {
-        //     int temp = 0;
-
-        //     for(int j=0;j<n;j++)
-        //     {
-        //         if(customers[j]=='Y' && j>=i) temp++; 
-        //         else if(customers[j]=='N' && j<i) temp++;
-        //     }
-        //     cout<<temp;
-        //     panelty.push_back(temp);
-        // }
-
-        // int maxP = n+2;
-        // int idx = n;
-
-        // for(int i=0;i<=n;i++)
-        // {
-            
-        //     if(panelty[i]<maxP)
-        //     {
-        //         maxP = panelty[i];
-        //         idx = i;
-        //     } 
-        //     cout<<maxP;
-        // }
-
-        // return idx;
-
 
         int n = customers.size();
 
@@ -60,12 +27,10 @@ public:
         panelty.push_back(n-suffix);
 
         int maxP = n+2;
-         int idx = n-1;
+        int idx = n-1;
 
         for(int i=0;i<=n;i++)
-        {
-            cout<<panelty[i]<<" ";
-            
+        {   
             if(panelty[i]<maxP)
             {
                 maxP = panelty[i];
@@ -74,9 +39,7 @@ public:
             cout<<maxP;
         }
 
-
         return idx;
-
 
     }
 };
